@@ -19,9 +19,9 @@ const port=process.env.PORT || '4000'
 const DATABASE_URL=process.env.DATABASE_URL
 
 
-app.get('/',(req,res)=>{
-    res.send("Hello world from express");
-})
+// app.get('/',(req,res)=>{
+//     res.send("Hello world from express");
+// })
 
 app.use('/',router);
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`)
