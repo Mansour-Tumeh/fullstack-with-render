@@ -6,8 +6,6 @@ import mongoose from 'mongoose';
 import path from "path";
 import { fileURLToPath } from "url";
 import router from './routes/userroute.js'
-import connection from './database/connectDB.js';
-import './database/model.js';
 
 dotenv.config();
 
@@ -16,14 +14,9 @@ app.use(cors());
 app.use(bodyParser.json({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 const port=process.env.PORT || '4000'
-const DATABASE_URL=process.env.DATABASE_URL
 
 
-// app.get('/',(req,res)=>{
-//     res.send("Hello world from express");
-// })
 
-app.use('/',router);
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`)
 .then( ()=>{
     console.log(`Database connected 😎`);
