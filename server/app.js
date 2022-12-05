@@ -24,12 +24,19 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${
 .catch(err =>{
     console.log(err);
 });
-const __filename = fileURLToPath(import.meta.url);
+// const __filename = fileURLToPath(import.meta.url);
 
-const __dirname = path.dirname(__filename);
-app.get("*", (req, res)=>{
-    res.sendFile(path.join(__dirname, "../client", "build", "index.html" ))
+// const __dirname = path.dirname(__filename);
+
+// app.get("*", (req, res)=>{
+//     res.sendFile(path.join(__dirname, "../client", "build", "index.html" ))
+// });
+
+app.use(express.static(path.join(__dirname, "client/build")));
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname + "../client/build/index.html"))
 })
+
 
 app.listen(port,()=>{
     console.log(`listening to ${port}  port`);
