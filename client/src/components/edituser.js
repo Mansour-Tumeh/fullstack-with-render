@@ -48,7 +48,7 @@ function Edituser(){
             number:newdata.number
         }
         try{
-            axios.put(`http://localhost:4000/Edit/${id}`,updatedData);
+            axios.put(`https://fullstack-user-app.onrender.com/Edit/${id}`,updatedData);
             setnewdata({
                 Name:"",
                 Email:"",
@@ -61,7 +61,7 @@ function Edituser(){
     }
     function deleteuser(){
         try {
-            axios.delete(`http://localhost:4000/deleteuser/${id}`);
+            axios.delete(`https://fullstack-user-app.onrender.com/deleteuser/${id}`);
             alert("user deleted successfully !!!!");
             setnewdata({
                 Name:"",
