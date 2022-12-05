@@ -4,7 +4,7 @@ import bodyParser  from 'body-parser';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import path from "path";
-// import { fileURLToPath } from "url";
+import { fileURLToPath } from "url";
 import router from './routes/userroute.js'
 import connection from './database/connectDB.js';
 import './database/model.js';
@@ -31,9 +31,9 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${
 .catch(err =>{
     console.log(err);
 });
-// const __filename = fileURLToPath(import.meta.url);
+const __filename = fileURLToPath(import.meta.url);
 
-// const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(__filename);
 app.get("*", (req, res)=>{
     res.sendFile(path.join(__dirname, "../client", "build", "index.html" ))
 })
