@@ -3,7 +3,7 @@ import express from "express";
 import bodyParser  from 'body-parser';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-// import path from "path";
+import path from "path";
 // import { fileURLToPath } from "url";
 import router from './routes/userroute.js'
 import connection from './database/connectDB.js';
