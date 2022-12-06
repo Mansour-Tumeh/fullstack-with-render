@@ -15,7 +15,7 @@ app.use(bodyParser.json({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 const port=process.env.PORT || '4000'
 
-
+app.use('/',router);
 
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`)
 .then( ()=>{
@@ -28,9 +28,7 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${
 
  const __dirname = path.dirname(__filename);
 
-// app.get("*", (req, res)=>{
-//     res.sendFile(path.join(__dirname, "../client", "build", "index.html" ))
-// });
+
 
 app.use(express.static(path.join(__dirname, "../client/build")));
 app.get('*',(req,res)=>{

@@ -27,7 +27,7 @@ function Edituser(){
     const routeParams=useParams();
     const id=routeParams.id;
     function getsingledata(){
-        axios.get(`https://users-app-api.onrender.com/getsingleuser/${id}`).then(res=>{
+        axios.get(`/getsingleuser/${id}`).then(res=>{
             setnewdata({
                 Name:res.data.name,
                 Email:res.data.email,
@@ -48,7 +48,7 @@ function Edituser(){
             number:newdata.number
         }
         try{
-            axios.put(`https://fullstack-user-app.onrender.com/Edit/${id}`,updatedData);
+            axios.put(`/Edit/${id}`,updatedData);
             setnewdata({
                 Name:"",
                 Email:"",
@@ -61,7 +61,7 @@ function Edituser(){
     }
     function deleteuser(){
         try {
-            axios.delete(`https://fullstack-user-app.onrender.com/deleteuser/${id}`);
+            axios.delete(`/deleteuser/${id}`);
             alert("user deleted successfully !!!!");
             setnewdata({
                 Name:"",

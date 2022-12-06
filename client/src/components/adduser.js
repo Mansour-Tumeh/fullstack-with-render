@@ -31,7 +31,7 @@ function Adduser(){
             
         }
         try{
-            axios.post('https://fullstack-user-app.onrender.com/add',userdata);
+            axios.post('/add',userdata);
             setuser({
                 Name:"",
                 Email:"",
